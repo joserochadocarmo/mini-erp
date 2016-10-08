@@ -1,0 +1,56 @@
+<div class="container">
+	<!-- Novo produto. -->
+	<form class="form-horizontal">
+		<fieldset>
+			<!-- Form Name -->
+			<legend>Produto</legend>
+			
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="textinput">Código</label>
+				<div class="col-md-6">
+					<input id="txt_codigo" name="codigo" type="text"
+						placeholder="Coloque aqui o código" class="form-control input-md"
+						ng-model="produto.codigo" required="required">
+				</div>
+			</div>
+			<!-- Nome -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="textinput">Nome</label>
+				<div class="col-md-6">
+					<input id="txt_nome" name="nome" type="text"
+						placeholder="Coloque aqui o nome" class="form-control input-md"
+						ng-model="produto.nome" required="required">
+				</div>
+			</div>
+			<!-- Tipo -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="textinput">Tipo</label>
+				<div class="col-md-6">
+					<input id="txt_tipo" name="tipo" type="text"
+						placeholder="Coloque aqui o tipo (perecivel, etc)"
+						class="form-control input-md" ng-model="produto.tipo" required="required">
+				</div>
+			</div>
+			<!-- Quantidade -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="textinput">Quantidade</label>
+				<div class="col-md-6">
+					<input id="txt_quantidade" name="quantidade" type="text"
+						placeholder="Coloque aqui a quantidade"
+						class="form-control input-md" ng-model="produto.quantidade" required="required">
+				</div>
+			</div>
+			{{produto.data}}
+			<!-- Button -->
+			<div class="form-group">
+				<label class="col-md-4 control-label"></label>
+				<div class="col-md-4">
+					<button type="submit" class="waves-effect waves-light btn"
+						ng-click="novoProduto(produto)">Novo</button>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+<!-- Container -->

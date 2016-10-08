@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="vendas">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vendas</title>
+
+<script src="lib/jquery/js/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+<script src="lib/angularjs/js/angular.min.js"></script>
+<script src="lib/angularjs/js/angular-route.min.js"></script>
+<script type="text/javascript" src="vendas.js"></script>
+<script type="text/javascript" src="produtoCtrl.js"></script>
+<script type="text/javascript" src="clienteCtrl.js"></script>
+<script type="text/javascript" src="routeConfig.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
+</head>
+<body>
+	<nav>
+		<div class="nav-wrapper">
+			<a href="#!" class="brand-logo"><i class="material-icons">home</i>Mini ERP</a>
+				
+			<!-- Dropdown Structure -->
+			<ul id="dropdown1" class="dropdown-content">
+				<li><a href="#!">Profile</a></li>
+				<li><a href="#!">Configuraçãoes</a></li>
+				<li class="divider"></li>
+				<li><a href="#!">Sair</a></li>
+			</ul>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="/">Home</a></li>
+				<li><a href="#/produto">Produtos</a></li>
+				<li><a href="#/cliente">Cliente</a></li>
+				<li><a class="dropdown-button" href="#!"
+					data-activates="dropdown1">José Rocha<i
+						class="material-icons left">arrow_drop_down</i></a>
+				</li>
+				
+			</ul>
+		</div>
+	</nav>
+	<br>
+	<div ng-view></div>
+
+</body>
+</html>

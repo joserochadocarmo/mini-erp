@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import lab.cliente.Cliente;
+
 @RestController
 @RequestMapping("/produto")
 public class ProdutoController {
@@ -29,5 +31,10 @@ public class ProdutoController {
   @RequestMapping(value = "/novo", method = POST)
   public Produto novo(@RequestBody Produto produto) {
     return produtoService.registrarProduto(produto);
+  }
+  
+  @RequestMapping(value = "/deletar", method = POST)
+  public void deletar(@RequestBody Produto produto) {
+	  produtoService.deletarCliente(produto);
   }
 }

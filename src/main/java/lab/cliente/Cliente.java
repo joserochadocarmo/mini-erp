@@ -1,5 +1,7 @@
 package lab.cliente;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -8,6 +10,8 @@ public class Cliente {
 
   @Id
   private Integer codigo;
+  
+  private Date data;
 
   public Integer getCodigo() {
     return codigo;
@@ -34,6 +38,14 @@ public class Cliente {
     super();
     this.codigo = codigo;
     this.nome = nome;
+  }
+
+  public Date getData() {
+    return data;
+  }
+
+  public void setData(Date data) {
+    this.data = data;
   }
 
 }

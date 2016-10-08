@@ -1,1 +1,1 @@
-angular.module("vendas", ["ngRoute"]);
+angular.module("vendas", ["ngRoute",'ui.materialize']);

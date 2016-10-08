@@ -3,6 +3,7 @@ angular.module("vendas").controller("produtoCtrl", function ($scope, $http) {
 			$http.post("produto/novo", produto).success(function (resultadoDoResponse) {
 				buscarProdutos();
 				delete $scope.produto;
+				$('#modal1').closeModal();
 				Materialize.toast('Produto cadastrado com sucesso!', 4000) // 4000 is the duration of the toast
 			});
 		};

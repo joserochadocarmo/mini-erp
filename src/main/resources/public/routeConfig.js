@@ -8,5 +8,5 @@ angular.module("vendas").config(function ($routeProvider) {
 		templateUrl: "cliente.html",
 		controller: "clienteCtrl"
 	});
-	$routeProvider.otherwise({redirectTo: "/"});
+	$routeProvider.otherwise({redirectTo: "/cliente"});
 });

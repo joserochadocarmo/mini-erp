@@ -3,6 +3,7 @@ angular.module("vendas").controller("clienteCtrl", function ($scope, $http) {
 		$http.post("cliente/novo", cliente).success(function (resultadoDoResponse) {
 			buscarClientes();
 			delete $scope.cliente;
+			$('#modal1').closeModal();
 			Materialize.toast('Cliente cadastrado com sucesso!', 4000) // 4000 is the duration of the toast
 		});
 	};

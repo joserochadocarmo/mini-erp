@@ -1,92 +1,106 @@
 <div class="container">
-	<!-- Novo produto. -->
-	<form class="form-horizontal">
-		<fieldset>
-			<!-- Form Name -->
-			<legend>Produto</legend>
+	
+	<button data-target="modal1" class="btn modal-trigger">NOVO</button>
+	
+	<!-- modal de inclusao -->
+	<div id="modal1" class="modal">
+		<form class="form-horizontal">
+			<div class="modal-content">
+				<h4>Cadastrar Produto</h4>
 
-			<div class="form-group">
-				<label class="col-md-4 control-label" for="textinput">Código</label>
-				<div class="col-md-6">
-					<input id="txt_codigo" name="codigo" type="number"
-						placeholder="Coloque aqui o código" class="form-control input-md"
-						ng-model="produto.codigo" required="required">
+				<!-- Codigo -->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="textinput">Código</label>
+					<div class="col-md-6">
+						<input id="txt_codigo" name="codigo" type="number"
+							placeholder="Coloque aqui o código" class="form-control input-md"
+							ng-model="produto.codigo" required autofocus>
+					</div>
 				</div>
-			</div>
-			<!-- Nome -->
-			<div class="form-group">
-				<label class="col-md-4 control-label" for="textinput">Nome</label>
-				<div class="col-md-6">
-					<input id="txt_nome" name="nome" type="text"
-						placeholder="Coloque aqui o nome" class="form-control input-md"
-						ng-model="produto.nome" required="required">
+				
+				<!-- Nome -->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="textinput">Nome</label>
+					<div class="col-md-6">
+						<input id="txt_nome" name="nome" type="text"
+							placeholder="Coloque aqui a descrição do produto" class="form-control input-md"
+							ng-model="produto.nome" required="required">
+					</div>
 				</div>
-			</div>
-			<!-- Tipo -->
-			<div class="form-group">
-				<label class="col-md-4 control-label" for="textinput">Tipo</label>
-				<div class="col-md-6">
-					<input id="txt_tipo" name="tipo" type="text"
-						placeholder="Coloque aqui o tipo (perecivel, etc)"
-						class="form-control input-md" ng-model="produto.tipo">
+				
+				<!-- Tipo -->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="textinput">Tipo</label>
+					<div class="col-md-6">
+						<input id="txt_tipo" name="tipo" type="text"
+							placeholder="Coloque aqui o tipo (perecivel, etc)"
+							class="form-control input-md" ng-model="produto.tipo">
+					</div>
 				</div>
-			</div>
-			<!-- Quantidade -->
-			<div class="form-group">
-				<label class="col-md-4 control-label" for="textinput">Quantidade</label>
-				<div class="col-md-6">
-					<input id="txt_quantidade" name="quantidade" type="number"
-						placeholder="Coloque aqui a quantidade"
-						class="form-control input-md" ng-model="produto.quantidade"
-						required="required">
-				</div>
-			</div>
-			{{produto.data}}
-			<!-- Button -->
-			<div class="form-group">
-				<label class="col-md-4 control-label"></label>
-				<div class="col-md-4">
-					<button type="submit" class="waves-effect waves-light btn"
-						ng-click="novoProduto(produto)">Salvar</button>
-				</div>
-			</div>
-
-		</fieldset>
-		<div class="row">
-			<div class="col s12 m12">
-				<div class="card">
-					<div class="card-content">
-						<span class="card-title">Listagem de produtos</span>
-						<table class="striped">
-							<thead>
-								<tr>
-									<th data-field="id">Codigo</th>
-									<th data-field="nome">Nome</th>
-									<th data-field="tipo">Tipo</th>
-									<th data-field="quantidade">Quantidade</th>
-									<th data-field="data">Data Cadastro</th>
-									<th data-field="data"><i class="material-icons">more_horiz</i></th>
-								</tr>
-							</thead>
-
-							<tbody>
-								<tr ng-repeat="produto in produtos">
-									<td>{{produto.codigo}}</td>
-									<td>{{produto.nome}}</td>
-									<td>{{produto.tipo}}</td>
-									<td>{{produto.quantidade}}</td>
-									<td>{{produto.data}}</td>
-									<td ng-click="deletarProduto(produto)" style="cursor: pointer;"><i
-										class="material-icons">delete</i></td>
-								</tr>
-							</tbody>
-						</table>
+				
+				<!-- Quantidade -->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="textinput">Quantidade</label>
+					<div class="col-md-6">
+						<input id="txt_quantidade" name="quantidade" type="number"
+							placeholder="Coloque aqui a quantidade"
+							class="form-control input-md" ng-model="produto.quantidade"
+							required="required">
+					</div>
+				</div>			
+					
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label"></label>
+					<div class="col-md-4">
+						<button type="submit" class="waves-effect waves-light btn"
+							ng-click="novoProduto(produto)">Salvar</button>
 					</div>
 				</div>
 			</div>
+			
+		</form>
+	</div>
+
+	<!-- Listagem -->
+	<div class="row">
+		<div class="col s12 m12">
+			<div class="card">
+				<div class="card-content">
+					<span class="card-title">Listagem de produtos</span>
+					<p ng-hide="produtos.length">Nenhum produto cadastrado!</p>
+					<table class="striped" ng-show="produtos.length">
+						<thead>
+							<tr>
+								<th data-field="id">Codigo</th>
+								<th data-field="nome">Nome</th>
+								<th data-field="tipo">Tipo</th>
+								<th data-field="quantidade">Quantidade</th>
+								<th data-field="data">Data Cadastro</th>
+								<th data-field="data"><i class="material-icons">more_horiz</i></th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr ng-repeat="produto in produtos">
+								<td>{{produto.codigo}}</td>
+								<td>{{produto.nome}}</td>
+								<td>{{produto.tipo}}</td>
+								<td>{{produto.quantidade}}</td>
+								<td>{{produto.data}}</td>
+								<td ng-click="deletarProduto(produto)" style="cursor: pointer;"><i
+									class="material-icons">delete</i></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
-
-
-	</form>
+	</div>
 </div>
-<!-- Container -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+		$('.modal-trigger').leanModal();
+	});
+</script>
